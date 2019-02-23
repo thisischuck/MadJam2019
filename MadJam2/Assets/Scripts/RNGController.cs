@@ -185,6 +185,6 @@ public class RNGController : MonoBehaviour
     private void SpawnObjectHorizontally(float x, float y, float z)
     {
         GameObject newObj = Instantiate(template_horizontal, new Vector3(x, y, z), Quaternion.identity);
-        template_horizontal.GetComponent<HorizontalObjectBehaviour>().Move(10);
+        newObj.GetComponent<HorizontalObjectBehaviour>().Move(10);
     }
 }
