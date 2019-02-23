@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (isMovable)
 		{
-            Jump();
+			Movement();
 			Dash();
 		}
 	}
@@ -95,7 +95,13 @@ public class PlayerController : MonoBehaviour
 			lastKey = PlayerSettings.Instance.Right;
 		}
 
-		rb.velocity = move.normalized * speed * Time.deltaTime;
+		if (Input.GetKeyDown(PlayerSettings.Instance.Jump))
+		{
+			rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+		}
+
+		if(move != Vector3.zero)
+			rb.velocity = move.normalized * speed * Time.deltaTime;
 	}
 
     private void Jump()
@@ -274,11 +280,6 @@ public class PlayerController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (isMovable)
-		{
-			Movement();
-		}
-
 		//BetterJumping
 		if (rb.velocity.y < 0)
 			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultipplier - 1) * Time.deltaTime;

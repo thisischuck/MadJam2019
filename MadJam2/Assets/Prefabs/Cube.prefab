@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5139986812675632110}
   - component: {fileID: 143511699}
   - component: {fileID: 6790887765368813980}
+  - component: {fileID: 1681056089}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -156,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 10
   speed: 500
-  jumpForce: 15
+  jumpForce: 10
   fallMultipplier: 2.5
   LowJumpMultiplier: 2
   isMovable: 0
@@ -165,6 +166,19 @@ MonoBehaviour:
   dashDur: 0.5
   hasDashed: 0
   dashCooldown: 0.5
+--- !u!114 &1681056089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726346098584546663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b950db43a5e63cc4781306dcc719890f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!1 &806805224941763711
 GameObject:
   m_ObjectHideFlags: 0
