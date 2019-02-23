@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4364982154176529859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3941005741389077914}
+  - component: {fileID: 5311760734833544278}
+  m_Layer: 0
+  m_Name: RNGController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3941005741389077914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4364982154176529859}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.688286, y: -3.1753993, z: 0.04322815}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5311760734833544278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4364982154176529859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671038e6127d01848af69b062ed13762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timePassed: 0
+  dificultyIncrease_1: 15
+  dificultyIncrease_2: 30
+  dificultyIncrease_3: 45
+  TimeToSpawn: 5
+  timeCounter: 0
+  spawnerBack: {fileID: 0}
+  spawnerFront: {fileID: 0}
+  spawnerFarAway: {fileID: 0}
+  player: {fileID: 0}
+  terrainHeightTop: 16
+  terrainHeightBot: -16
+  defaultHeight: 2
+  semiClosePlayerDistance: 3
+  template_vertical: {fileID: 0}
+  template_horizontal: {fileID: 0}
+  chance_toSpawnInFront: 20
+  chance_toSpawnSemiClose: 50
+  chance_toSpawnRandomPosition: 70
+  chance_toSpawnFarAway: 100
