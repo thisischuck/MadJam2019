@@ -174,6 +174,7 @@ public class RNGController : MonoBehaviour
     {
         GameObject newObj = Instantiate(template_vertical, new Vector3(x, y, z), Quaternion.identity);
         newObj.GetComponent<MeshRenderer>().material.color = Color.red;
+        newObj.GetComponent<ObjectShadow>().StartFalling(2, 5);
     }
 
     private void SpawnObject(float x, float y, float z)

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +12,16 @@ public class GameManager : MonoBehaviour
 	private PlayerController currentPlayer;
 	public Vector3 SpawnPosition;
 
+    public float highscore = 0;
+    public Canvas UI;
+    public GameObject deathScreen;
+    public GameObject scoreUI;
+    public TMP_Text txtScore;
+    public TMP_Text txtFinalScore;
+
+    public GameObject RNG;
 	private bool gameRunning;
+    public bool isAlive = true;
 
 	private void Awake()
 	{
@@ -31,11 +42,28 @@ public class GameManager : MonoBehaviour
 	{
 		if (gameRunning)
 		{
-			
+            RNG.SetActive(true);
+            UI.gameObject.SetActive(true);
+            txtScore.text = "Score: " + (int)highscore;
+            if (!isAlive)
+            {
+                Time.timeScale = 0f;
+                UI.gameObject.SetActive(true);
+                deathScreen.gameObject.SetActive(true);
+                txtFinalScore.text = "Final Score: " + (int)highscore;
+            }
 		}
 	}
 
-	public void StartGame()
+    private void FixedUpdate()
+    {
+        if (gameRunning)
+        {
+            highscore += 10 * Time.deltaTime;
+        }
+    }
+
+    public void StartGame()
 	{
 		gameRunning = true;
 		SetUpPlayer();
@@ -51,6 +79,16 @@ public class GameManager : MonoBehaviour
 		currentPlayer.transform.position = SpawnPosition;
 		currentPlayer.isMovable = true;
 	}
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
 	public void EndGame(bool won)
 	{

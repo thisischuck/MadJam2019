@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8972059060767070960}
   - component: {fileID: 1270312466853180314}
   - component: {fileID: 3003655199490318498}
-  - component: {fileID: 8118681011274260657}
   - component: {fileID: 9222219871501614034}
   m_Layer: 0
   m_Name: Shadow
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5416643868071054096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.6202574, y: 1.9, z: -3.0255547}
-  m_LocalScale: {x: 3, y: 0.3, z: 3}
+  m_LocalScale: {x: 3, y: 0.05, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,19 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8118681011274260657
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5416643868071054096}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9222219871501614034
 MonoBehaviour:
   m_ObjectHideFlags: 0
