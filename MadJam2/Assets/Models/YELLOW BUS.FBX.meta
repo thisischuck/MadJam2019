@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: f1f21fff1119f1340b77e2cc7de97668
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: BUS_WHEEL_BL
+    100002: BUS_WHEEL_BR
+    100004: BUS_WHEEL_FL
+    100006: BUS_WHEEL_FR
+    100008: BUS_Yellow
+    100010: //RootNode
+    400000: BUS_WHEEL_BL
+    400002: BUS_WHEEL_BR
+    400004: BUS_WHEEL_FL
+    400006: BUS_WHEEL_FR
+    400008: BUS_Yellow
+    400010: //RootNode
+    2300000: BUS_WHEEL_BL
+    2300002: BUS_WHEEL_BR
+    2300004: BUS_WHEEL_FL
+    2300006: BUS_WHEEL_FR
+    2300008: BUS_Yellow
+    3300000: BUS_WHEEL_BL
+    3300002: BUS_WHEEL_BR
+    3300004: BUS_WHEEL_FL
+    3300006: BUS_WHEEL_FR
+    3300008: BUS_Yellow
+    4300000: BUS_Yellow
+    4300002: BUS_WHEEL_FR
+    4300004: BUS_WHEEL_FL
+    4300006: BUS_WHEEL_BR
+    4300008: BUS_WHEEL_BL
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAMPER
+    second: {fileID: 2100000, guid: 6943e87d56d63a14a87bf087ceb626b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BUS TYRE
+    second: {fileID: 2100000, guid: 6d070000dba032e44a8ae2749dc93e57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GLASS
+    second: {fileID: 2100000, guid: 32dc1cd52f385d1418c19723870382df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LI
+    second: {fileID: 2100000, guid: 6125ad0c514032941af3d36ae5adb263, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LIGHT WHITE
+    second: {fileID: 2100000, guid: 775c6617b213d0d448ca1ae4e7c914e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: METAL WHITE
+    second: {fileID: 2100000, guid: 7e65810adb2fad8409751646178e8e62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RED LIGHT
+    second: {fileID: 2100000, guid: 218a3e37c9b618943854cec5358f7756, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body color
+    second: {fileID: 2100000, guid: 6fe956137a20e20448eca7d8315ced76, type: 2}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
