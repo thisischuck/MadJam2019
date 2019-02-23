@@ -39,6 +39,7 @@ public class RNGController : MonoBehaviour
     public GameObject template_vertical;
     [Tooltip("Horizontal hazard.")]
     public GameObject template_horizontal;
+    public List<int> enemyList;
 
     //Chances
     [Header("Chances")]
@@ -50,12 +51,18 @@ public class RNGController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyList = new List<int>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (enemyList.Count == 0)
+        {
+            RandomizeList();
+        }
+
         timeCounter += 1 * Time.deltaTime;
         if (timeCounter >= TimeToSpawn)
         {
@@ -64,6 +71,26 @@ public class RNGController : MonoBehaviour
         }
 
         TimeController();
+    }
+
+    private void RandomizeList()
+    {
+        int[] list = new int[4];
+        enemyList = new List<int>(list);
+        Shuffle();
+    }
+
+    private void Shuffle()
+    {
+        var count = enemyList.Count;
+        var last = count - 1;
+        for (var i = 0; i < last; ++i)
+        {
+            var r = UnityEngine.Random.Range(i, count);
+            var tmp = enemyList[i];
+            enemyList[i] = enemyList[r];
+            enemyList[r] = tmp;
+        }
     }
 
     private void TimeController()
