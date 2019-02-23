@@ -6,11 +6,16 @@ using UnityEngine;
 public class HazardObjects : ScriptableObject
 {
     // For the Thunder Object
-    public ParticleSystem particleSystem;
-
     public List<Sprite> spriteList;
 
-    public float Mass;
+    [Tooltip("Fill only with 0 and 1")]
+    public List<uint> direction;
 
-    public float LifeTime;
+    public List<ParticleSystem> particleSystem;
+
+    public List<int> Size;
+
+    public List<float> Mass;
+
+    public List<float> LifeTime;
 }
