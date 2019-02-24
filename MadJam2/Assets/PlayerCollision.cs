@@ -8,9 +8,11 @@ public class PlayerCollision : MonoBehaviour
     bool deathAnim = false;
     float startingScaleY;
     float auxTimer = 0;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         startingScaleY = transform.localScale.y;
     }
 
@@ -27,6 +29,8 @@ public class PlayerCollision : MonoBehaviour
             {
                 gameManager.GetComponent<GameManager>().isAlive = false;
             }
+
+            animator.SetBool("Death", true);
         }
     }
 

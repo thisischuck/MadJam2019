@@ -144,12 +144,12 @@ PrefabInstance:
     - target: {fileID: 4277162491696147776, guid: 3867ab9e6db46eb49ba0b64c10b94ca1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35
+      value: 25.1
       objectReference: {fileID: 0}
     - target: {fileID: 4277162491696147776, guid: 3867ab9e6db46eb49ba0b64c10b94ca1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4277162491696147776, guid: 3867ab9e6db46eb49ba0b64c10b94ca1,
         type: 3}
@@ -196,6 +196,16 @@ PrefabInstance:
       propertyPath: moveWithTransform
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4277162491696147778, guid: 3867ab9e6db46eb49ba0b64c10b94ca1,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277162491696147778, guid: 3867ab9e6db46eb49ba0b64c10b94ca1,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3867ab9e6db46eb49ba0b64c10b94ca1, type: 3}
 --- !u!1 &81276690
@@ -1002,6 +1012,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 454652600, guid: 423ec60bbb952f945af7452ef88d141e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c3a8da141c233644985e3f7860707cad,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 423ec60bbb952f945af7452ef88d141e, type: 3}
 --- !u!114 &1273825770 stripped
