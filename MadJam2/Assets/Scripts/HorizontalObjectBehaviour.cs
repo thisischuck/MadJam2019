@@ -7,10 +7,12 @@ public class HorizontalObjectBehaviour : MonoBehaviour
     private bool start = false;
     public float vel;
     Rigidbody rB;
+    public AudioManager aS;
     // Start is called before the first frame update
     void Start()
     {
-        rB = GetComponent<Rigidbody>(); 
+        rB = GetComponent<Rigidbody>();
+        aS = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame

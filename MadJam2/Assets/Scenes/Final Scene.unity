@@ -670,7 +670,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d867368bf6489904786997b8c146c11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: seagul
+    clip: {fileID: 8300000, guid: c85c0b7668b09bd4da6b40ce1afc3df5, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: cow
+    clip: {fileID: 8300000, guid: 72a1883db52e17044bdc5cc0e2439abf, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: skate
+    clip: {fileID: 8300000, guid: 601c55b5f1dcd2f4087fa778d3da0868, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &791009581
 Transform:
   m_ObjectHideFlags: 0

@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
             lastKey = PlayerSettings.Instance.Right;
         }
 
-        if (Input.GetKeyDown(PlayerSettings.Instance.Jump))
+        if (Input.GetKeyDown(PlayerSettings.Instance.Jump) && IsGrounded())
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
@@ -142,10 +142,13 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(PlayerSettings.Instance.Jump))
+        if (IsGrounded())
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            lastKey = PlayerSettings.Instance.Jump;
+            if (Input.GetKeyDown(PlayerSettings.Instance.Jump) && IsGrounded())
+            {
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                lastKey = PlayerSettings.Instance.Jump;
+            }
         }
     }
 

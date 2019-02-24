@@ -33,7 +33,6 @@ public class PlayerCollision : MonoBehaviour
     private float ScalePercentage(float maxTime, float currentTime)
     {
         float x = 1 - (currentTime / maxTime);
-        Debug.Log("Current Time: " + currentTime + "Current Scale: " + x);
         return 1 - (currentTime / maxTime);
     }
 

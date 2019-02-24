@@ -44,7 +44,6 @@ public class ObjectShadow : MonoBehaviour
     private float ScalePercentage(float maxTime, float currentTime)
     {
         float x = 1 - (currentTime / maxTime);
-        Debug.Log("Current Time: " + currentTime + "Current Scale: " + x);
         return 1 - (currentTime / maxTime);
     }
 
@@ -54,6 +53,14 @@ public class ObjectShadow : MonoBehaviour
         {
             GameObject objectToFall = Instantiate(fallingEnemies[position], new Vector3(transform.position.x, transform.position.y + 10, transform.position.z), Quaternion.identity);
             objectToFall.GetComponent<Rigidbody>().mass = 10 * mass;
+            if (position == 0)
+            {
+                objectToFall.GetComponent<ObjectBehaviour>().name = "seagull";
+            }
+            if (position == 1)
+            {
+                objectToFall.GetComponent<ObjectBehaviour>().name = "cow";
+            }
             Destroy(this.gameObject);
         }
         else
@@ -72,6 +79,17 @@ public class ObjectShadow : MonoBehaviour
             this.mass = mass;
             start = true;
             position = pos;
+            if (pos == 0)
+            {
+                startingScaleX = transform.localScale.x;
+                startingScaleZ = transform.localScale.z;
+            }
+            if (pos == 1)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * 2, transform.localScale.y, transform.localScale.z);
+                startingScaleX = transform.localScale.x;
+                startingScaleZ = transform.localScale.z;
+            }
         }
         else
             if (pos == 2)

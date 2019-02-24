@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
 
 		currentPlayer.transform.position = SpawnPosition;
 		currentPlayer.isMovable = true;
+        
 	}
 
     public void RestartGame()
