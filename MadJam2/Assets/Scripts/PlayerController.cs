@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float LowJumpMultiplier = 2f;
     float distToGround;
 
+    private SpriteRenderer sprite;
+
     //Animator
     public Animator animator;
     public bool rightSide = true;
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         distToGround = GetComponent<BoxCollider>().bounds.extents.y;
@@ -91,9 +94,12 @@ public class PlayerController : MonoBehaviour
             //rb.velocity += Vector3.left * speed * Time.deltaTime;
             move += Vector3.left;
             lastKey = PlayerSettings.Instance.Left;
+            sprite.flipX = true;
         }
         else if (Input.GetKey(PlayerSettings.Instance.Right))
         {
+
+            sprite.flipX = false;
             //rb.MovePosition( transform.position + Vector3.right * speed * Time.deltaTime);
             //rb.velocity += Vector3.right * speed * Time.deltaTime;
             move += Vector3.right;
