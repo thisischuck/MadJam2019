@@ -49,6 +49,8 @@ public class RNGController : MonoBehaviour
     private float minSpeed = 10;
     private float maxSpeed = 12;
 
+    public float numberOfTimes = 1;
+
     //Chances
     [Header("Chances")]
     public float chance_toSpawnInFront = 20.0f;
@@ -107,10 +109,11 @@ public class RNGController : MonoBehaviour
 
         if (timePassed >= dificultyIncrease_1)
         {
-            chance_toSpawnInFront = 30.0f;
-            chance_toSpawnSemiClose = 60.0f;
+            chance_toSpawnInFront = 40.0f;
+            chance_toSpawnSemiClose = 70.0f;
             chance_toSpawnRandomPosition = 75.0f;
-            TimeToSpawn = 3;
+            TimeToSpawn = 2.5f;
+            numberOfTimes = 1;
 
             fallingTime = 1.5f;
             mass = 1f;
@@ -121,10 +124,11 @@ public class RNGController : MonoBehaviour
 
         if (timePassed >= dificultyIncrease_2)
         {
-            chance_toSpawnInFront = 40.0f;
+            chance_toSpawnInFront = 50.0f;
             chance_toSpawnSemiClose = 70.0f;
             chance_toSpawnRandomPosition = 80.0f;
             TimeToSpawn = 2;
+            numberOfTimes = 2;
 
             fallingTime = 1.2f;
             mass = 1.2f;
@@ -135,10 +139,11 @@ public class RNGController : MonoBehaviour
 
         if (timePassed >= dificultyIncrease_3)
         {
-            chance_toSpawnInFront = 50.0f;
+            chance_toSpawnInFront = 60.0f;
             chance_toSpawnSemiClose = 80.0f;
             chance_toSpawnRandomPosition = 90.0f;
             TimeToSpawn = 1;
+            numberOfTimes = 3;
 
             fallingTime = 0.8f;
             mass = 1.5f;
@@ -149,10 +154,11 @@ public class RNGController : MonoBehaviour
 
         if (timePassed >= dificultyIncrease_hell)
         {
-            chance_toSpawnInFront = 70.0f;
+            chance_toSpawnInFront = 80.0f;
             chance_toSpawnSemiClose = 95.0f;
             chance_toSpawnRandomPosition = 95.0f;
             TimeToSpawn = 0.5f;
+            numberOfTimes = 4;
 
             fallingTime = 0.8f;
             mass = 2f;
@@ -170,28 +176,40 @@ public class RNGController : MonoBehaviour
         chanceToSpawn = Random.Range(0, 100);
         if (chanceToSpawn <= chance_toSpawnInFront)
         {
-            SpawningInFront();
+            for (int i = 0; i < numberOfTimes; i++)
+            {
+                SpawningInFront();
+            }
         }
 
         //Semi Close
         chanceToSpawn = Random.Range(0, 100);
         if (chanceToSpawn <= chance_toSpawnSemiClose)
         {
-            SpawningSemiClose();
+            for (int i = 0; i < numberOfTimes; i++)
+            {
+                SpawningSemiClose();
+            }
         }
 
         //Random Position
         chanceToSpawn = Random.Range(0, 100);
         if (chanceToSpawn <= chance_toSpawnRandomPosition)
         {
-            SpawningRandomPosition();
+            for (int i = 0; i < numberOfTimes; i++)
+            {
+                SpawningRandomPosition();
+            }
         }
 
         //Far Away
         chanceToSpawn = Random.Range(0, 100);
         if (chanceToSpawn <= chance_toSpawnFarAway)
         {
-            SpawningFarAway();
+            for (int i = 0; i < numberOfTimes; i++)
+            {
+                SpawningFarAway();
+            }
         }
     }
 
@@ -213,7 +231,7 @@ public class RNGController : MonoBehaviour
 
     private void SpawningSemiClose()
     {
-        float x = Random.Range(player.transform.position.x - (semiClosePlayerDistance/2), player.transform.position.x + semiClosePlayerDistance + 1);
+        float x = Random.Range(player.transform.position.x - (semiClosePlayerDistance / 2), player.transform.position.x + semiClosePlayerDistance + 1);
         float z = Random.Range(player.transform.position.z - semiClosePlayerDistance, player.transform.position.z + semiClosePlayerDistance);
 
         while ((player.transform.position.z + semiClosePlayerDistance < terrainHeightTop && player.transform.position.z - semiClosePlayerDistance > terrainHeightBot) && (z > terrainHeightTop || z < terrainHeightBot))
@@ -228,10 +246,10 @@ public class RNGController : MonoBehaviour
     {
         float x = 0, z = 0;
 
-        if (Input.GetKey(PlayerSettings.Instance.Forward)) { x = 4; }
-        if (Input.GetKey(PlayerSettings.Instance.Back)) { x = -4; }
-        if (Input.GetKey(PlayerSettings.Instance.Right)) { z = 4; }
-        if (Input.GetKey(PlayerSettings.Instance.Left)) { z = -4; }
+        if (Input.GetKey(PlayerSettings.Instance.Forward)) { x = 5; }
+        if (Input.GetKey(PlayerSettings.Instance.Back)) { x = -5; }
+        if (Input.GetKey(PlayerSettings.Instance.Right)) { z = 5; }
+        if (Input.GetKey(PlayerSettings.Instance.Left)) { z = -5; }
 
         SpawnObject(player.transform.position.x + x, mapHeight, player.transform.position.z + z);
 
@@ -253,7 +271,7 @@ public class RNGController : MonoBehaviour
         if (random == 0)
         {
             GameObject newObj = Instantiate(nerd, new Vector3(x, y, z), Quaternion.identity);
-            newObj.GetComponent<HorizontalObjectBehaviour>().Move(Random.Range(minSpeed,maxSpeed), "skater");
+            newObj.GetComponent<HorizontalObjectBehaviour>().Move(Random.Range(minSpeed, maxSpeed), "skater");
         }
         else
         if (random == 1)

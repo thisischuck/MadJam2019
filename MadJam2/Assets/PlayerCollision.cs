@@ -44,5 +44,10 @@ public class PlayerCollision : MonoBehaviour
             deathAnim = true;
             animator.SetBool("Death", true);
         }
+
+        if (collision.gameObject.tag == "Victory")
+        {
+            gameManager.GetComponent<GameManager>().Victory();
+        }
     }
 }

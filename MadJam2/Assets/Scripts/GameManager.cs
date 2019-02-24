@@ -16,8 +16,10 @@ public class GameManager : MonoBehaviour
     public Canvas UI;
     public GameObject deathScreen;
     public GameObject scoreUI;
+    public GameObject victoryScreen;
     public TMP_Text txtScore;
     public TMP_Text txtFinalScore;
+    public TMP_Text txtFinalScore2;
     public AudioManager aS;
 
     public GameObject RNG;
@@ -54,6 +56,13 @@ public class GameManager : MonoBehaviour
                 Bus.SetActive(true);
             UI.gameObject.SetActive(true);
             txtScore.text = "Score: " + (int)highscore;
+
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+
             if (!isAlive)
             {
                 Time.timeScale = 0f;
@@ -99,6 +108,14 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Victory()
+    {
+        Time.timeScale = 0f;
+        UI.gameObject.SetActive(true);
+        victoryScreen.gameObject.SetActive(true);
+        txtFinalScore2.text = "Final Score: " + (int)highscore;
     }
 
     public void EndGame(bool won)
