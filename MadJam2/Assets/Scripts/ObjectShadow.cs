@@ -58,10 +58,10 @@ public class ObjectShadow : MonoBehaviour
         }
         else
             if (thunder)
-        {
-            GameObject objectToFall = Instantiate(fallingEnemies[position], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-            Destroy(this.gameObject);
-        }
+            {
+                GameObject objectToFall = Instantiate(fallingEnemies[position], new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), Quaternion.identity);
+                Destroy(this.gameObject);
+            }
     }
 
     public void StartFalling(float timeToFall, float mass, int pos)
