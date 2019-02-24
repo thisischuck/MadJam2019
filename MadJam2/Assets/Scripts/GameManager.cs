@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	public static GameManager Instance;
+    public static GameManager Instance;
 
-	public PlayerController playerPrefab;
-	public Camera PlayerCamera;
-	private PlayerController currentPlayer;
-	public Vector3 SpawnPosition;
+    public PlayerController playerPrefab;
+    public Camera PlayerCamera;
+    private PlayerController currentPlayer;
+    public Vector3 SpawnPosition;
 
     public float highscore = 0;
     public Canvas UI;
@@ -21,23 +21,24 @@ public class GameManager : MonoBehaviour
     public AudioManager aS;
 
     public GameObject RNG;
-	private bool gameRunning;
+    public GameObject Bus;
+    private bool gameRunning;
     public bool isAlive = true;
 
-	private void Awake()
-	{
-		if (Instance == null)
-		{
-			GameManager.Instance = this;
-			gameRunning = false;
-			//DontDestroyOnLoad(this);
-		}
-		else
-		{
-			Destroy(this.gameObject);
-			return;
-		}
-	}
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            GameManager.Instance = this;
+            gameRunning = false;
+            //DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+    }
 
     public void Start()
     {
@@ -45,10 +46,12 @@ public class GameManager : MonoBehaviour
     }
 
     void Update()
-	{
-		if (gameRunning)
-		{
+    {
+        if (gameRunning)
+        {
             RNG.SetActive(true);
+            if (Bus)
+                Bus.SetActive(true);
             UI.gameObject.SetActive(true);
             txtScore.text = "Score: " + (int)highscore;
             if (!isAlive)
@@ -58,8 +61,8 @@ public class GameManager : MonoBehaviour
                 deathScreen.gameObject.SetActive(true);
                 txtFinalScore.text = "Final Score: " + (int)highscore;
             }
-		}
-	}
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -70,23 +73,23 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartGame()
-	{
-		gameRunning = true;
+    {
+        gameRunning = true;
         aS.Play("rain");
-		SetUpPlayer();
-	}
+        SetUpPlayer();
+    }
 
-	public void SetUpPlayer()
-	{
-		PlayerController player = FindObjectOfType<PlayerController>();
-		if (player == null)
-			currentPlayer = Instantiate(playerPrefab);
-		else currentPlayer = player;
+    public void SetUpPlayer()
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player == null)
+            currentPlayer = Instantiate(playerPrefab);
+        else currentPlayer = player;
 
-		currentPlayer.transform.position = SpawnPosition;
-		currentPlayer.isMovable = true;
-        
-	}
+        currentPlayer.transform.position = SpawnPosition;
+        currentPlayer.isMovable = true;
+
+    }
 
     public void RestartGame()
     {
@@ -98,12 +101,12 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-	public void EndGame(bool won)
-	{
-		//UIManager.Instance.SetEnd(true, pickedUpItems);
-		//FindObjectOfType<AudioManager>().Play("Moan");
-		//currentPoop.transform.position = currentPlayer.transform.position - (Vector3.down * 0.5f);
-		gameRunning = false;
-		currentPlayer.isMovable = false;
-	}
+    public void EndGame(bool won)
+    {
+        //UIManager.Instance.SetEnd(true, pickedUpItems);
+        //FindObjectOfType<AudioManager>().Play("Moan");
+        //currentPoop.transform.position = currentPlayer.transform.position - (Vector3.down * 0.5f);
+        gameRunning = false;
+        currentPlayer.isMovable = false;
+    }
 }

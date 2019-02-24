@@ -22,15 +22,11 @@ public class PlayerCollision : MonoBehaviour
         if (deathAnim)
         {
             auxTimer += 1 * Time.deltaTime;
-            float scale = ScalePercentage(0.5f, auxTimer);
-            transform.localScale = new Vector3(transform.localScale.x, startingScaleY * scale, transform.localScale.z);
 
-            if (transform.localScale.y <= 0.01f || scale <= 0.01f)
+            if (auxTimer > 0.5f)
             {
                 gameManager.GetComponent<GameManager>().isAlive = false;
             }
-
-            animator.SetBool("Death", true);
         }
     }
 
@@ -46,6 +42,7 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.tag == "hazard")
         {
             deathAnim = true;
+            animator.SetBool("Death", true);
         }
     }
 }
