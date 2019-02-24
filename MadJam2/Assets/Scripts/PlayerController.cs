@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
 			rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 		}
 
-		if(move != Vector3.zero)
+		if (move != Vector3.zero || isDashing)
 			rb.velocity = move.normalized * speed * Time.deltaTime;
 	}
 

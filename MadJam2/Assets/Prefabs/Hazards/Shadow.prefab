@@ -96,3 +96,8 @@ MonoBehaviour:
   auxTimer: 0
   speed: 0
   start: 0
+  thunder: 0
+  fallingEnemies:
+  - {fileID: 9081675836634184376, guid: 560c9859deb3bc545a4cf324fe4842a6, type: 3}
+  - {fileID: 1560763123588986029, guid: dd9f1e2f8c581db4b884b0db9afd6635, type: 3}
+  - {fileID: 9121823172942940678, guid: f96d99aa8d1aa3848bf45fedde4c94b0, type: 3}

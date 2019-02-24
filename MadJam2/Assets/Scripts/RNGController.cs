@@ -12,6 +12,7 @@ public class RNGController : MonoBehaviour
     public int dificultyIncrease_1 = 15;
     public int dificultyIncrease_2 = 30;
     public int dificultyIncrease_3 = 45;
+    public int dificultyIncrease_hell = 60;
 
     //Timer
     [Header("Timers")]
@@ -32,14 +33,21 @@ public class RNGController : MonoBehaviour
     public float terrainHeightBot = -16;
     [Tooltip("Radius where semi close hazards will be spawned.")]
     public float semiClosePlayerDistance = 3;
+    public float mapHeight = 1.5f;
 
     //Objects to Spawn
     [Header("Objects to Spawn")]
     [Tooltip("Vertical hazard. Start with shadow.")]
     public GameObject template_vertical;
     [Tooltip("Horizontal hazard.")]
-    public GameObject template_horizontal;
+    public GameObject nerd, tree;
     public List<int> enemyList;
+
+    private float fallingTime = 2;
+    private float mass = 0.1f;
+
+    private float minSpeed = 10;
+    private float maxSpeed = 12;
 
     //Chances
     [Header("Chances")]
@@ -75,7 +83,7 @@ public class RNGController : MonoBehaviour
 
     private void RandomizeList()
     {
-        int[] list = new int[4];
+        int[] list = new int[3] { 0, 1, 2 };
         enemyList = new List<int>(list);
         Shuffle();
     }
@@ -102,7 +110,13 @@ public class RNGController : MonoBehaviour
             chance_toSpawnInFront = 30.0f;
             chance_toSpawnSemiClose = 60.0f;
             chance_toSpawnRandomPosition = 75.0f;
-            TimeToSpawn = 4;
+            TimeToSpawn = 3;
+
+            fallingTime = 1.5f;
+            mass = 1f;
+
+            minSpeed = 12;
+            maxSpeed = 14;
         }
 
         if (timePassed >= dificultyIncrease_2)
@@ -110,7 +124,13 @@ public class RNGController : MonoBehaviour
             chance_toSpawnInFront = 40.0f;
             chance_toSpawnSemiClose = 70.0f;
             chance_toSpawnRandomPosition = 80.0f;
-            TimeToSpawn = 3;
+            TimeToSpawn = 2;
+
+            fallingTime = 1.2f;
+            mass = 1.2f;
+
+            minSpeed = 15;
+            maxSpeed = 17;
         }
 
         if (timePassed >= dificultyIncrease_3)
@@ -118,7 +138,27 @@ public class RNGController : MonoBehaviour
             chance_toSpawnInFront = 50.0f;
             chance_toSpawnSemiClose = 80.0f;
             chance_toSpawnRandomPosition = 90.0f;
-            TimeToSpawn = 2;
+            TimeToSpawn = 1;
+
+            fallingTime = 0.8f;
+            mass = 1.5f;
+
+            minSpeed = 18;
+            maxSpeed = 20;
+        }
+
+        if (timePassed >= dificultyIncrease_hell)
+        {
+            chance_toSpawnInFront = 70.0f;
+            chance_toSpawnSemiClose = 95.0f;
+            chance_toSpawnRandomPosition = 95.0f;
+            TimeToSpawn = 0.5f;
+
+            fallingTime = 0.8f;
+            mass = 2f;
+
+            minSpeed = 22;
+            maxSpeed = 25;
         }
     }
 
@@ -160,7 +200,7 @@ public class RNGController : MonoBehaviour
         float x = spawnerFarAway.transform.position.x;
         float z = Random.Range(terrainHeightBot, terrainHeightTop);
 
-        SpawnObjectHorizontally(x, player.transform.position.y, z);
+        SpawnObjectHorizontally(x, mapHeight, z);
     }
 
     private void SpawningRandomPosition()
@@ -168,51 +208,63 @@ public class RNGController : MonoBehaviour
         float x = Random.Range(spawnerBack.transform.position.x, spawnerFront.transform.position.x);
         float z = Random.Range(terrainHeightBot, terrainHeightTop);
 
-        SpawnObject(x, player.transform.position.y, z);
+        SpawnObject(x, mapHeight, z);
     }
 
     private void SpawningSemiClose()
     {
-        float x = Random.Range(player.transform.position.x - semiClosePlayerDistance, player.transform.position.x + semiClosePlayerDistance);
+        float x = Random.Range(player.transform.position.x - (semiClosePlayerDistance/2), player.transform.position.x + semiClosePlayerDistance + 1);
         float z = Random.Range(player.transform.position.z - semiClosePlayerDistance, player.transform.position.z + semiClosePlayerDistance);
 
-        while (z > terrainHeightTop || z < terrainHeightBot)
+        while ((player.transform.position.z + semiClosePlayerDistance < terrainHeightTop && player.transform.position.z - semiClosePlayerDistance > terrainHeightBot) && (z > terrainHeightTop || z < terrainHeightBot))
         {
             z = Random.Range(player.transform.position.z - semiClosePlayerDistance, player.transform.position.z + semiClosePlayerDistance);
         }
 
-        SpawnObject(x, player.transform.position.y, z);
+        SpawnObject(x, mapHeight, z);
     }
 
     private void SpawningInFront()
     {
         float x = 0, z = 0;
 
-        if (Input.GetAxis("Horizontal") > 0) { x = 2; }
-        if (Input.GetAxis("Horizontal") < 0) { x = -2; }
-        if (Input.GetAxis("Vertical") > 0) { z = 2; }
-        if (Input.GetAxis("Vertical") < 0) { z = -2; }
+        if (Input.GetKey(PlayerSettings.Instance.Forward)) { x = 4; }
+        if (Input.GetKey(PlayerSettings.Instance.Back)) { x = -4; }
+        if (Input.GetKey(PlayerSettings.Instance.Right)) { z = 4; }
+        if (Input.GetKey(PlayerSettings.Instance.Left)) { z = -4; }
 
-        SpawnObjectSpecial(player.transform.position.x + x, player.transform.position.y, player.transform.position.z + z);
+        SpawnObject(player.transform.position.x + x, mapHeight, player.transform.position.z + z);
 
-    }
-
-    private void SpawnObjectSpecial(float x, float y, float z)
-    {
-        GameObject newObj = Instantiate(template_vertical, new Vector3(x, y, z), Quaternion.identity);
-        newObj.GetComponent<MeshRenderer>().material.color = Color.red;
-        newObj.GetComponent<ObjectShadow>().StartFalling(2, 5);
     }
 
     private void SpawnObject(float x, float y, float z)
     {
+        int randomEnemy = enemyList[Random.Range(0, enemyList.Count)];
+        enemyList.Remove(randomEnemy);
+
         GameObject newObj = Instantiate(template_vertical, new Vector3(x, y, z), Quaternion.identity);
-        newObj.GetComponent<ObjectShadow>().StartFalling(2, 5);
+        newObj.GetComponent<ObjectShadow>().StartFalling(fallingTime, mass, randomEnemy);
     }
 
     private void SpawnObjectHorizontally(float x, float y, float z)
     {
-        GameObject newObj = Instantiate(template_horizontal, new Vector3(x, y, z), Quaternion.identity);
-        newObj.GetComponent<HorizontalObjectBehaviour>().Move(10);
+        int random = Random.Range(0, 2);
+
+        if (random == 0)
+        {
+            GameObject newObj = Instantiate(nerd, new Vector3(x, y, z), Quaternion.identity);
+            newObj.GetComponent<HorizontalObjectBehaviour>().Move(Random.Range(minSpeed,maxSpeed));
+        }
+        else
+        if (random == 1)
+        {
+            GameObject newObj = Instantiate(tree, new Vector3(x, y, z), Quaternion.identity);
+            newObj.GetComponent<HorizontalObjectBehaviour>().Move(minSpeed);
+        }
+        else
+        {
+            GameObject newObj = Instantiate(nerd, new Vector3(x, y, z), Quaternion.identity);
+            newObj.GetComponent<HorizontalObjectBehaviour>().Move(Random.Range(minSpeed, maxSpeed));
+        }
     }
 }
