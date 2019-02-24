@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: b88549b842f5c9e4a9643c731ad44f6a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Oak
+    100002: pCube2
+    100004: pCube3
+    100006: pCube4
+    100008: pCube5
+    100010: pCube6
+    100012: pCube7
+    100014: pCube8
+    100016: predios
+    100018: predios4
+    100020: road_straight_mesh2
+    100022: table
+    100024: table1
+    100026: table2
+    100028: table3
+    100030: //RootNode
+    400000: Oak
+    400002: pCube2
+    400004: pCube3
+    400006: pCube4
+    400008: pCube5
+    400010: pCube6
+    400012: pCube7
+    400014: pCube8
+    400016: predios
+    400018: predios4
+    400020: road_straight_mesh2
+    400022: table
+    400024: table1
+    400026: table2
+    400028: table3
+    400030: //RootNode
+    2100000: lambert78
+    2100002: anisotropic4
+    2100004: lambert77
+    2100006: anisotropic31
+    2100008: anisotropic26
+    2100010: anisotropic30
+    2100012: anisotropic29
+    2100014: anisotropic28
+    2100016: anisotropic27
+    2100018: anisotropic33
+    2100020: anisotropic32
+    2100022: anisotropic2
+    2100024: anisotropic3
+    2100026: janelas1
+    2100028: porta1
+    2100030: anisotropic1
+    2100032: potTree
+    2100034: grass
+    2100036: road
+    2100038: anisotropic34
+    2100040: anisotropic20
+    2100042: anisotropic22
+    2100044: anisotropic23
+    2100046: anisotropic21
+    2100048: anisotropic17
+    2100050: anisotropic19
+    2100052: anisotropic18
+    2100054: Default_Material1
+    2100056: nEWyORK3
+    2100058: anisotropic25
+    2100060: anisotropic24
+    2100062: anisotropic8
+    2100064: anisotropic9
+    2100066: anisotropic10
+    2100068: anisotropic6
+    2100070: anisotropic11
+    2100072: anisotropic13
+    2100074: anisotropic14
+    2100076: Brick2_something1
+    2100078: anisotropic12
+    2100080: lambert76
+    2100082: anisotropic15
+    2100084: anisotropic16
+    2100086: PresidentialSub1
+    2100088: anisotropic7
+    2300000: Oak
+    2300002: pCube2
+    2300004: pCube3
+    2300006: pCube4
+    2300008: pCube5
+    2300010: pCube6
+    2300012: pCube7
+    2300014: pCube8
+    2300016: predios
+    2300018: predios4
+    2300020: road_straight_mesh2
+    2300022: table
+    2300024: table1
+    2300026: table2
+    2300028: table3
+    3300000: Oak
+    3300002: pCube2
+    3300004: pCube3
+    3300006: pCube4
+    3300008: pCube5
+    3300010: pCube6
+    3300012: pCube7
+    3300014: pCube8
+    3300016: predios
+    3300018: predios4
+    3300020: road_straight_mesh2
+    3300022: table
+    3300024: table1
+    3300026: table2
+    3300028: table3
+    4300000: table3
+    4300002: pCube7
+    4300004: pCube3
+    4300006: pCube4
+    4300008: Oak
+    4300010: pCube5
+    4300012: table1
+    4300014: table
+    4300016: pCube6
+    4300018: pCube2
+    4300020: road_straight_mesh2
+    4300022: table2
+    4300024: predios
+    4300026: pCube8
+    4300028: predios4
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 40
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
