@@ -165,6 +165,8 @@ MonoBehaviour:
   jumpForce: 10
   fallMultipplier: 2.5
   LowJumpMultiplier: 2
+  animator: {fileID: 0}
+  rightSide: 1
   isMovable: 0
   keyTapTimeFrame: 0.2
   isDashing: 0
@@ -226,8 +228,8 @@ MonoBehaviour:
   - {fileID: 356400792632098695}
   - {fileID: 4579439774578039943}
   m_Bounds:
-    m_Center: {x: 8.737758, y: 6.793331, z: 0}
-    m_Extent: {x: 22.2714, y: 25.389395, z: 0}
+    m_Center: {x: 8.737757, y: 6.7933292, z: 0}
+    m_Extent: {x: 22.2714, y: 25.389389, z: 0}
 --- !u!1 &753361391734490226
 GameObject:
   m_ObjectHideFlags: 0
