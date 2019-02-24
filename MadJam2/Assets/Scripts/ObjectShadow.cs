@@ -22,7 +22,7 @@ public class ObjectShadow : MonoBehaviour
     {
         startingScaleX = transform.localScale.x;
         startingScaleZ = transform.localScale.z;
-        GetComponent<MeshRenderer>().material.color = Color.blue;
+        GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
     // Update is called once per frame
