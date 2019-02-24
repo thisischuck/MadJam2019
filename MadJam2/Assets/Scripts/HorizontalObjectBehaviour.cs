@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HorizontalObjectBehaviour : MonoBehaviour
 {
+    public string name;
     private bool start = false;
     public float vel;
     Rigidbody rB;
@@ -13,6 +14,15 @@ public class HorizontalObjectBehaviour : MonoBehaviour
     {
         rB = GetComponent<Rigidbody>();
         aS = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
+        if (name == "skater")
+        {
+            aS.Play("skate");
+        }
+        if (name == "cow")
+        {
+            aS.Play("cow");
+        }
     }
 
     // Update is called once per frame
@@ -21,9 +31,10 @@ public class HorizontalObjectBehaviour : MonoBehaviour
         rB.AddForce(Vector3.left * vel, ForceMode.Force);
     }
 
-    public void Move(float velocity)
+    public void Move(float velocity, string n)
     {
         start = true;
         vel = velocity;
+        name = n;
     }
 }

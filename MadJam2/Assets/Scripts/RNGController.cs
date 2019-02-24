@@ -253,18 +253,18 @@ public class RNGController : MonoBehaviour
         if (random == 0)
         {
             GameObject newObj = Instantiate(nerd, new Vector3(x, y, z), Quaternion.identity);
-            newObj.GetComponent<HorizontalObjectBehaviour>().Move(Random.Range(minSpeed,maxSpeed));
+            newObj.GetComponent<HorizontalObjectBehaviour>().Move(Random.Range(minSpeed,maxSpeed), "skater");
         }
         else
         if (random == 1)
         {
             GameObject newObj = Instantiate(tree, new Vector3(x, y, z), Quaternion.identity);
-            newObj.GetComponent<HorizontalObjectBehaviour>().Move(minSpeed);
+            newObj.GetComponent<HorizontalObjectBehaviour>().Move(minSpeed, "skater");
         }
         else
         {
             GameObject newObj = Instantiate(nerd, new Vector3(x, y, z), Quaternion.identity);
-            newObj.GetComponent<HorizontalObjectBehaviour>().Move(Random.Range(minSpeed, maxSpeed));
+            newObj.GetComponent<HorizontalObjectBehaviour>().Move(Random.Range(minSpeed, maxSpeed), "skater");
         }
     }
 }

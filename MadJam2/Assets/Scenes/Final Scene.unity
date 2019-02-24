@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -517,15 +517,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1681056089, guid: 985bd79464f2fad4c8167116f1d93f29, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 411530442}
     - target: {fileID: 6790887765368813980, guid: 985bd79464f2fad4c8167116f1d93f29,
         type: 3}
       propertyPath: jumpForce
       value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 1681056089, guid: 985bd79464f2fad4c8167116f1d93f29, type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 411530442}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 985bd79464f2fad4c8167116f1d93f29, type: 3}
 --- !u!1 &411530442
@@ -566,6 +566,7 @@ MonoBehaviour:
   scoreUI: {fileID: 213634101}
   txtScore: {fileID: 213634103}
   txtFinalScore: {fileID: 47331938}
+  aS: {fileID: 0}
   RNG: {fileID: 2011118296}
   isAlive: 1
 --- !u!4 &411530444
@@ -788,6 +789,18 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: thunder
+    clip: {fileID: 8300000, guid: 86e8f050b7bbdb049a29b54c9979ecb6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: rain
+    clip: {fileID: 8300000, guid: a2ed7dfbc203f564aab371f801a17be3, type: 3}
+    volume: 0.386
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &791009581
 Transform:

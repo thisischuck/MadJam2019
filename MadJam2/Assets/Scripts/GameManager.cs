@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject scoreUI;
     public TMP_Text txtScore;
     public TMP_Text txtFinalScore;
+    public AudioManager aS;
 
     public GameObject RNG;
 	private bool gameRunning;
@@ -38,7 +39,12 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	void Update()
+    public void Start()
+    {
+        aS = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
+
+    void Update()
 	{
 		if (gameRunning)
 		{
@@ -66,6 +72,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
 	{
 		gameRunning = true;
+        aS.Play("rain");
 		SetUpPlayer();
 	}
 
