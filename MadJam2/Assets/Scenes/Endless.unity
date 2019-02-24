@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 277670677}
-  PlayerCamera: {fileID: 0}
+  PlayerCamera: {fileID: 2134147430}
   SpawnPosition: {x: 0, y: 3, z: 0}
   highscore: 0
   UI: {fileID: 407818053}

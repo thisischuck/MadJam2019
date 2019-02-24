@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1539168781981613239}
   - component: {fileID: 9029016628316183915}
   - component: {fileID: 2290039308530233544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Nerd
   m_TagString: hazard
   m_Icon: {fileID: 0}
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vel: 0
+  aS: {fileID: 0}
 --- !u!54 &2290039308530233544
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1115295455150670290}
   - component: {fileID: 445247534795011402}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

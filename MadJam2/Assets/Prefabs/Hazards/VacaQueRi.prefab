@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8103352273746732540}
   - component: {fileID: 6436499802305935127}
   - component: {fileID: 7439589097052252576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VacaQueRi
   m_TagString: hazard
   m_Icon: {fileID: 0}
@@ -106,9 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56e1765aab728949b86908afd79d5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   rigidbody: {fileID: 0}
   lifeSpan: 5
   useGravity: 1
+  aS: {fileID: 0}
 --- !u!54 &7439589097052252576
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -135,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7427039866109908147}
   - component: {fileID: 6753792752263822038}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
