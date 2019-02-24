@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -804,10 +804,6 @@ PrefabInstance:
     - target: {fileID: 1483552259, guid: 423ec60bbb952f945af7452ef88d141e, type: 3}
       propertyPath: m_Name
       value: Menu_Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1483552259, guid: 423ec60bbb952f945af7452ef88d141e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1483552263, guid: 423ec60bbb952f945af7452ef88d141e, type: 3}
       propertyPath: m_LocalPosition.x

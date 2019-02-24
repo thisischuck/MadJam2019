@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class MainMenu : MonoBehaviour
 		//FindObjectOfType<AudioManager>().Stop("MenuTheme");
 		//FindObjectOfType<AudioManager>().Play("Theme");
 	}
+
+    public void Endless()
+    {
+        SceneManager.LoadScene(1);
+    }
 
 	public void ExitGame()
 	{
