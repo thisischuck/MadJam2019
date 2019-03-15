@@ -11,6 +11,7 @@ public class PlayerSettings : MonoBehaviour {
 	public KeyCode Right;
 	public KeyCode Left;
     public KeyCode Jump;
+	public KeyCode Dash;
 
 	public void Awake()
 	{
@@ -30,5 +31,6 @@ public class PlayerSettings : MonoBehaviour {
 		Right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("rightKey", "D"));
 		Left = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("leftKey", "A"));
 		Jump = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("jumpKey", "Space"));
+		Dash = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("dashKey", "LeftShift"));
 	}
 }

@@ -39,9 +39,9 @@ public class RNGController : MonoBehaviour
     [Header("Objects to Spawn")]
     [Tooltip("Vertical hazard. Start with shadow.")]
     public GameObject template_vertical;
-    [Tooltip("Horizontal hazard.")]
-    public GameObject nerd, tree;
-    public List<int> enemyList;
+    [Tooltip("Horizontal hazard. Start with Warning")]
+    public GameObject nerd, tree, warning_template;
+	public List<int> enemyList;
 
     private float fallingTime = 2;
     private float mass = 0.1f;
@@ -267,22 +267,26 @@ public class RNGController : MonoBehaviour
     private void SpawnObjectHorizontally(float x, float y, float z)
     {
         int random = Random.Range(0, 2);
+		GameObject newObj;
 
-        if (random == 0)
+		if (random == 0)
         {
-            GameObject newObj = Instantiate(nerd, new Vector3(x, y, z), Quaternion.identity);
+            newObj = Instantiate(nerd, new Vector3(x, y, z), Quaternion.identity);
             newObj.GetComponent<HorizontalObjectBehaviour>().Move(Random.Range(minSpeed, maxSpeed), "skater");
         }
         else
         if (random == 1)
         {
-            GameObject newObj = Instantiate(tree, new Vector3(x, y, z), Quaternion.identity);
+            newObj = Instantiate(tree, new Vector3(x, y, z), Quaternion.identity);
             newObj.GetComponent<HorizontalObjectBehaviour>().Move(minSpeed, "skater");
         }
         else
         {
-            GameObject newObj = Instantiate(nerd, new Vector3(x, y, z), Quaternion.identity);
+            newObj = Instantiate(nerd, new Vector3(x, y, z), Quaternion.identity);
             newObj.GetComponent<HorizontalObjectBehaviour>().Move(Random.Range(minSpeed, maxSpeed), "skater");
         }
-    }
+
+		GameObject warning = Instantiate(warning_template, new Vector3(spawnerFront.transform.position.x, spawnerFront.transform.position.y, newObj.transform.position.z), Quaternion.identity);
+		//warning.GetComponent<ObjectShadow>().StartFalling(fallingTime, mass, );
+	}
 }

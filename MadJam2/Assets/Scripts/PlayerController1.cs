@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController1 : MonoBehaviour
 {
     public int dashSpeed;
     public int speed;
@@ -16,27 +16,8 @@ public class PlayerController : MonoBehaviour
     public bool rightSide = true;
 
     public bool isMovable = false;
-    //public bool isDashing = false;
-
-    private KeyCode lastKey;
-    private float timeToDash;
-
 
     public float keyTapTimeFrame = 0.5f;
-
-    //----------------------------
-    private int keyTapCount_right = 0;
-    private float keyTapCool_right = 0f;
-
-    private int keyTapCount_left = 0;
-    private float keyTapCool_left = 0f;
-
-    private int keyTapCount_forward = 0;
-    private float keyTapCool_forward = 0f;
-
-    private int keyTapCount_back = 0;
-    private float keyTapCool_back = 0f;
-    //------------------------------------
 
     public bool isDashing = false;
     private Vector3 dir = Vector3.zero;
@@ -45,7 +26,7 @@ public class PlayerController : MonoBehaviour
     public float dashDur = 1;
 
     //----------------Dash Cooldown----------------------
-    public bool hasDashed = false;
+    public bool isDashable = true;
     [Tooltip("Dash cooldown.")]
     public float dashCooldown;
     private float dashCDRCount;
@@ -79,13 +60,11 @@ public class PlayerController : MonoBehaviour
         {
             //rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
             move += Vector3.forward;// * Time.deltaTime;
-            lastKey = PlayerSettings.Instance.Forward;
         }
         else if (Input.GetKey(PlayerSettings.Instance.Back))
         {
             //rb.MovePosition(transform.position + Vector3.back * speed * Time.deltaTime);
             move += Vector3.back;
-            lastKey = PlayerSettings.Instance.Back;
         }
 
         if (Input.GetKey(PlayerSettings.Instance.Left))
@@ -93,7 +72,6 @@ public class PlayerController : MonoBehaviour
             //rb.MovePosition(transform.position + Vector3.left * speed * Time.deltaTime);
             //rb.velocity += Vector3.left * speed * Time.deltaTime;
             move += Vector3.left;
-            lastKey = PlayerSettings.Instance.Left;
             sprite.flipX = true;
         }
         else if (Input.GetKey(PlayerSettings.Instance.Right))
@@ -102,7 +80,6 @@ public class PlayerController : MonoBehaviour
             //rb.MovePosition( transform.position + Vector3.right * speed * Time.deltaTime);
             //rb.velocity += Vector3.right * speed * Time.deltaTime;
             move += Vector3.right;
-            lastKey = PlayerSettings.Instance.Right;
         }
 
         if (Input.GetKeyDown(PlayerSettings.Instance.Jump) && IsGrounded())
@@ -112,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
         if (move != Vector3.zero || isDashing)
         {
-            rb.velocity = move.normalized * speed * Time.deltaTime;
+            rb.velocity = new Vector3(move.normalized.x * speed * Time.deltaTime, rb.velocity.y, move.normalized.z * speed * Time.deltaTime) ;
         }
 
         if (isDashing)
@@ -152,7 +129,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(PlayerSettings.Instance.Jump) && IsGrounded())
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                lastKey = PlayerSettings.Instance.Jump;
             }
         }
     }
@@ -164,142 +140,63 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        if (Input.GetKeyDown(PlayerSettings.Instance.Right) && !isDashing && !hasDashed) //Right Dash
+        if (Input.GetKey(PlayerSettings.Instance.Right) && !isDashing ) //Right Dash
         {
-			if (keyTapCool_right > 0 && keyTapCount_right >= keyTapTimeFrame)
+			if (Input.GetKeyDown(KeyCode.E) && isDashable)
             {
                 isDashing = true;
-                hasDashed = true;
+				isDashable = false;
 
                 dir = transform.right;
                 dashDurCount = 0;
                 dashCDRCount = 0;
-            }
-            else
-            {
-                keyTapCool_right += 0.5f;
-                keyTapCount_right += 1;
-            }
+				keyTapTimeFrame = Time.time+1f;
+			}
         }
-        if (Input.GetKeyDown(PlayerSettings.Instance.Left) && !isDashing && !hasDashed) //Right Dash
+        if (Input.GetKeyDown(PlayerSettings.Instance.Left) && !isDashing) //Right Dash
         {
-            if (keyTapCool_left > 0 && keyTapCount_left >= keyTapTimeFrame)
-            {
+			if (Input.GetKeyDown(KeyCode.E) && isDashable)
+			{
                 isDashing = true;
-                hasDashed = true;
+				isDashable = false;
 
                 dir = -transform.right;
                 dashDurCount = 0;
                 dashCDRCount = 0;
-            }
-            else
-            {
-                keyTapCool_left += 0.5f;
-                keyTapCount_left += 1;
-            }
+				keyTapTimeFrame = Time.time +1f;
+			}
         }
-        if (Input.GetKeyDown(PlayerSettings.Instance.Back) && !isDashing && !hasDashed) //Right Dash
+        if (Input.GetKeyDown(PlayerSettings.Instance.Back) && !isDashing) //Right Dash
         {
-            if (keyTapCool_back > 0 && keyTapCount_back >= keyTapTimeFrame)
-            {
+			if (Input.GetKeyDown(KeyCode.E) && isDashable)
+			{
                 isDashing = true;
-                hasDashed = true;
+				isDashable = false;
 
-                dir = -transform.forward;
+				dir = -transform.forward;
                 dashDurCount = 0;
                 dashCDRCount = 0;
-            }
-            else
-            {
-                keyTapCool_back += 0.5f;
-                keyTapCount_back += 1;
-            }
+				keyTapTimeFrame = Time.time +1f;
+			}
         }
-        if (Input.GetKeyDown(PlayerSettings.Instance.Forward) && !isDashing && !hasDashed) //Right Dash
+        if (Input.GetKeyDown(PlayerSettings.Instance.Forward) && !isDashing) //Right Dash
         {
-            if (keyTapCool_forward > 0 && keyTapCount_forward >= keyTapTimeFrame)
-            {
+			if (Input.GetKeyDown(KeyCode.E) && isDashable)
+			{
                 isDashing = true;
-                hasDashed = true;
+				isDashable = false;
 
-                dir = transform.forward;
+				dir = transform.forward;
                 dashDurCount = 0;
                 dashCDRCount = 0;
-            }
-            else
-            {
-                keyTapCool_forward += 0.5f;
-                keyTapCount_forward += 1;
-            }
-        }
-    }
-
-    private void CharacterTappingControl()
-    {
-        //Right Tap
-        if (keyTapCool_right > 0)
-        {
-            keyTapCool_right -= 1 * Time.deltaTime;
-        }
-        else
-        {
-            keyTapCount_right = 0;
-        }
-
-        if (keyTapCount_right > 2)
-        {
-            keyTapCount_right = 0;
-        }
-
-        //Left Tap
-        if (keyTapCool_left > 0)
-        {
-            keyTapCool_left -= 1 * Time.deltaTime;
-        }
-        else
-        {
-            keyTapCount_left = 0;
-        }
-
-        if (keyTapCount_left > 2)
-        {
-            keyTapCount_left = 0;
-        }
-
-        //Back Tap
-        if (keyTapCool_back > 0)
-        {
-            keyTapCool_back -= 1 * Time.deltaTime;
-        }
-        else
-        {
-            keyTapCount_back = 0;
-        }
-
-        if (keyTapCount_back > 2)
-        {
-            keyTapCount_back = 0;
-        }
-
-        //Forward Tap
-        if (keyTapCool_forward > 0)
-        {
-            keyTapCool_forward -= 1 * Time.deltaTime;
-        }
-        else
-        {
-            keyTapCount_forward = 0;
-        }
-
-        if (keyTapCount_forward > 2)
-        {
-            keyTapCount_forward = 0;
+				keyTapTimeFrame = Time.time + 1f;
+			}
         }
     }
 
     private void CharacterDashControl()
     {
-        if (hasDashed)
+        if (!isDashable)
         {
             if (isDashing)
             {
@@ -321,10 +218,10 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Rolling", false);
         }
 
-        if (dashCDRCount >= dashCooldown && hasDashed) //End of the cooldown
+        if (dashCDRCount >= dashCooldown && !isDashable) //End of the cooldown
         {
             dashCDRCount = 0;
-            hasDashed = false;
+			isDashable = true;
         }
     }
 
@@ -340,7 +237,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity += Vector3.up * Physics.gravity.y * (LowJumpMultiplier - 1) * Time.deltaTime;
         }
 
-        CharacterTappingControl();
-        CharacterDashControl();
+		CharacterDashControl();
     }
 }

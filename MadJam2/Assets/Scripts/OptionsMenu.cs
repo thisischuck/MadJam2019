@@ -15,7 +15,7 @@ public class OptionsMenu : MonoBehaviour
 	private KeyCode newKey;
 	Text buttonText;
 
-	void Start()
+	void Awake()
 	{
 		controls = transform.Find("Controls");
 		waitingForKey = false;
@@ -30,8 +30,10 @@ public class OptionsMenu : MonoBehaviour
 				controls.GetChild(i).Find("Text").GetComponent<Text>().text = PlayerSettings.Instance.Left.ToString();
 			else if (controls.GetChild(i).name == "RightButton")
 				controls.GetChild(i).Find("Text").GetComponent<Text>().text = PlayerSettings.Instance.Right.ToString();
-			else if (controls.GetChild(i).name == "InteractionButton")
+			else if (controls.GetChild(i).name == "JumpButton")
 				controls.GetChild(i).Find("Text").GetComponent<Text>().text = PlayerSettings.Instance.Jump.ToString();
+			else if (controls.GetChild(i).name == "DashButton")
+				controls.GetChild(i).Find("Text").GetComponent<Text>().text = PlayerSettings.Instance.Dash.ToString();
 		}
 
 	}
@@ -91,10 +93,15 @@ public class OptionsMenu : MonoBehaviour
 				buttonText.text = PlayerSettings.Instance.Right.ToString();
 				PlayerPrefs.SetString("rightKey", PlayerSettings.Instance.Right.ToString());
 				break;
-			case "Interaction":
+			case "Jump":
 				PlayerSettings.Instance.Jump = newKey;
 				buttonText.text = PlayerSettings.Instance.Jump.ToString();
-				PlayerPrefs.SetString("interactionKey", PlayerSettings.Instance.Jump.ToString());
+				PlayerPrefs.SetString("jumpKey", PlayerSettings.Instance.Jump.ToString());
+				break;
+			case "Dash":
+				PlayerSettings.Instance.Dash = newKey;
+				buttonText.text = PlayerSettings.Instance.Dash.ToString();
+				PlayerPrefs.SetString("dashKey", PlayerSettings.Instance.Dash.ToString());
 				break;
 		}
 	}
